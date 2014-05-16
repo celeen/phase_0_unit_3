@@ -5,12 +5,10 @@
 
 
 ## Release 0: Student Roster Schema
-<!-- display your image inline here -->
-
+![Release 0, Student Schema](../imgs/students.png)
 
 ## Release 1: One to Many Schema
-<!-- display your image inline here -->
-
+![Release 1, Users and ORders](../imgs/usersandorders.png)
 
 ## Release 2: One to One Schema
 <!-- display your image inline here -->
