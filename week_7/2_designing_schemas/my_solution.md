@@ -14,8 +14,7 @@
 ![Release 2, One to One](../imgs/onetoone.png)
 
 ## Release 3: Many to Many Schema
-<!-- display your image inline here -->
-
+![Release 3, Many to Many](../imgs/manytomany.png)
 
 ## Release 4: Design your own Schema
 Description of what you're modeling: 
