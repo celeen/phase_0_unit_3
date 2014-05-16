@@ -57,10 +57,36 @@ id          first_name  last_name   email                  created_at           
 sqlite>
 ```
 ## Release 3: Add a column
-<!-- paste your terminal output here -->
-
+```bash
+sqlite> ALTER TABLE users RENAME TO oldUsers;
+sqlite> CREATE TABLE users (
+   ...> id INTEGER PRIMARY KEY AUTOINCREMENT,
+   ...>   first_name VARCHAR(64) NOT NULL,
+   ...>   last_name  VARCHAR(64) NOT NULL,
+   ...>   email VARCHAR(128) UNIQUE NOT NULL,
+   ...>   created_at DATETIME NOT NULL,
+   ...>   updated_at DATETIME NOT NULL,
+   ...> nickname VARCHAR(64) NOT NULL
+   ...> );
+sqlite> INSERT INTO users SELECT *, 'Kimchee' FROM oldUsers;
+sqlite> DROP TABLE oldUsers;
+sqlite> select * from users
+   ...> ;
+id          first_name  last_name   email                  created_at           updated_at           nickname  
+----------  ----------  ----------  ---------------------  -------------------  -------------------  ----------
+1           Kimmey      Lin         kimmy@devbootcamp.com  2014-05-16 15:29:00  2014-05-16 15:29:00  Kimchee
+sqlite>
+```
 ## Release 4: Change a value
-<!-- paste your terminal output here -->
-
+```bash
+sqlite> UPDATE users SET nickname = 'Ninja Coder', first_name = 'Kimmy' WHERE email = 'kimmy@devbootcamp.com';
+sqlite> select * from users
+   ...> ;
+id          first_name  last_name   email                  created_at           updated_at           nickname
+----------  ----------  ----------  ---------------------  -------------------  -------------------  -----------
+1           Kimmy       Lin         kimmy@devbootcamp.com  2014-05-16 15:29:00  2014-05-16 15:29:00  Ninja Coder
+sqlite>
+```
 ## Release 5: Reflect
-<!-- Add your reflection here -->
+SQL and SQLite seem relatively straight forward. I tihnk I just need practice in order to retain it.
+Fortunately, I'll have plenty of opportunity to practice in the coming months!
