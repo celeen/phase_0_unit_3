@@ -1,4 +1,4 @@
-[Week 7 Home](../)
+ [Week 7 Home](../)
 
 # U3.W7: Modeling a Real-World Database (SOLO CHALLENGE)
 
