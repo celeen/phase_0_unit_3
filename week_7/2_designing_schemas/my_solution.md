@@ -19,7 +19,10 @@
 ## Release 4: Design your own Schema
 Description of what you're modeling: 
 
-<!-- display your one-to-one image inline here -->
-<!-- display your many-to-many image inline here -->
+I've always dreamt of having a flashcard set for the countries of the world, to help me memorize and stay up to date with them. You know- buff up on my geography.
+
+Here we have a one-to-one schema for the countries of the world, and their capital cities, and a many-to-many model for countries and languages. One language can be spoken by many countries, and one country might speak many languages.
+
+![One to one on top, Many to Many on Bottom](../imgs/myownschema.png)
 
 ## Release 5: Reflection
