@@ -8,11 +8,10 @@
 ![Release 0, Student Schema](../imgs/students.png)
 
 ## Release 1: One to Many Schema
-![Release 1, Users and ORders](../imgs/usersandorders.png)
+![Release 1, Users and Orders](../imgs/usersandorders.png)
 
 ## Release 2: One to One Schema
-<!-- display your image inline here -->
-
+![Release 2, One to One](../imgs/onetoone.png)
 
 ## Release 3: Many to Many Schema
 <!-- display your image inline here -->
