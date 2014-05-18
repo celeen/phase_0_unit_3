@@ -5,26 +5,25 @@
 
 
 # 3. Initial Solution
-def super_fizzbuzz(array)
-  array.map! do |n|
-    if n%3 == 0 && n%5 == 0
-      n = "FizzBuzz"
-    elsif n%3 == 0
-      n = "Fizz"
-    elsif n%5 == 0
-      n = "Buzz"
-    else
-      n
-    end
-  end
-  p array
-end
+# def super_fizzbuzz(array)
+#   array.map! do |n|
+#     if n%3 == 0 && n%5 == 0
+#       n = "FizzBuzz"
+#     elsif n%3 == 0
+#       n = "Fizz"
+#     elsif n%5 == 0
+#       n = "Buzz"
+#     else
+#       n
+#     end
+#   end
+#   p array
+# end
 # 4. Refactored Solution
 
 
 def super_fizzbuzz(array)
-
-  new_array = array.dup.map! do |n|
+  array.dup.map! do |n|
     if n%15 == 0
       n = "FizzBuzz"
     elsif n%3 == 0
@@ -35,8 +34,7 @@ def super_fizzbuzz(array)
       n
     end
   end
-  p new_array
-  p array
+
 end
 
 
