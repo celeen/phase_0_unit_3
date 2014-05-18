@@ -5,11 +5,11 @@
 
 
 ### My Quiz Results:
-<!-- Include the link to your image (saved in the imgs folder) to display it inline. -->
-
+![SQLZoo Quix Results](../imgs/sqlzoo.png)
 
 
 
 
 
 ### Reflection
+These exercises seemed easy, but in later exercises, when applying them in a more thorough coding context it got to be a bit more of a challenge. This was great practice at knowing the right syntax, but also at learning how best to think of databases, joins, foreign keys, etc...
