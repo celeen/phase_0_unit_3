@@ -26,6 +26,46 @@ var scores = [ [80, 70, 70, 100],
 // __________________________________________
 // Write your code below.
 
+//var average = function average(array) {
+//   sum = 0  
+//   length = array.length
+//   while (array.length > 0) {
+//     sum += array.pop();
+//   }
+//   return sum/length;
+// }
+
+// var gradebook = new Object();
+// gradebook.Joseph =  new Object();
+// gradebook.Susan =  new Object();
+// gradebook.William = new Object();
+// gradebook.Elizabeth = new Object();
+
+// gradebook.Joseph.testScores = scores[0];
+// gradebook.Susan.testScores = scores[1];
+// gradebook.William.testScores = scores[2];
+// gradebook.Elizabeth.testScores = scores[3];
+
+// console.log(gradebook);
+
+// gradebook.addScore = function addScore(name, score) {
+//   gradebook[name]["testScores"].push(score);
+// }
+
+// gradebook.getAverage = function getAverage(name) {
+//   return average(gradebook[name]['testScores'])
+  
+// }
+
+
+
+
+// __________________________________________
+// Refactored Solution
+
+
+
+
 var average = function average(array) {
   sum = 0  
   length = array.length
@@ -36,10 +76,10 @@ var average = function average(array) {
 }
 
 var gradebook = new Object();
-gradebook.Joseph =  new Object();
-gradebook.Susan =  new Object();
-gradebook.William = new Object();
-gradebook.Elizabeth = new Object();
+gradebook[students[0]] =  new Object();
+gradebook[students[1]] =  new Object();
+gradebook[students[2]] = new Object();
+gradebook[students[3]] = new Object();
 
 gradebook.Joseph.testScores = scores[0];
 gradebook.Susan.testScores = scores[1];
@@ -56,17 +96,6 @@ gradebook.getAverage = function getAverage(name) {
   return average(gradebook[name]['testScores'])
   
 }
-
-
-
-
-// __________________________________________
-// Refactored Solution
-
-
-
-
-
 
 
 
