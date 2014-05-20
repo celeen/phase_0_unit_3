@@ -1,4 +1,4 @@
-# Review
+cd # Review
 
 You've learned a lot of diverse material in Phase 0, and now you are two weeks away from Phase 1. We hope you're excited! These weeks will have a lot of review and more options for how to spend your time. Take the time you need to review important concepts. 
 
