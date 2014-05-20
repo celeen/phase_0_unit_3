@@ -65,8 +65,39 @@ var scores = [ [80, 70, 70, 100],
 
 
 
+// var average = function (array) {
+//   sum = 0  
+//   length = array.length
+//   while (array.length > 0) {
+//     sum += array.pop();
+//   }
+//   return sum/length;
+// }
+// var gradebook = {}
 
-var average = function average(array) {
+// var startGradebook = function(names, scores) {
+//   length = names.length
+//   for (i = 0; i < length; i++) {
+//   gradebook[names[i]] = {};
+//   gradebook[names[i]].testScores = scores[i];
+//   }
+// }
+
+// startGradebook(students, scores);
+
+// gradebook.addScore = function(name, score) {
+//   gradebook[name]["testScores"].push(score);
+// }
+
+
+// gradebook.getAverage = function(name) {
+//   return average(gradebook[name]['testScores'])
+  
+// }
+
+//________________________________________
+//More Refactoring, for OOD
+var average = function (array) {
   sum = 0  
   length = array.length
   while (array.length > 0) {
@@ -74,28 +105,36 @@ var average = function average(array) {
   }
   return sum/length;
 }
+var gradebook = {}
 
-var gradebook = new Object();
-gradebook[students[0]] =  new Object();
-gradebook[students[1]] =  new Object();
-gradebook[students[2]] = new Object();
-gradebook[students[3]] = new Object();
+var enterNames = function(names) {
+  length = names.length
+  for (i = 0; i < length; i++) {
+  gradebook[names[i]] = {};
+  }
+}
 
-gradebook.Joseph.testScores = scores[0];
-gradebook.Susan.testScores = scores[1];
-gradebook.William.testScores = scores[2];
-gradebook.Elizabeth.testScores = scores[3];
+enterNames(students);
 
-console.log(gradebook);
 
-gradebook.addScore = function addScore(name, score) {
+var enterScores = function(names, scores) {
+length = names.length;
+for (i = 0; i < length; i++) {
+    gradebook[names[i]].testScores = scores[i];
+  }
+}
+
+enterScores(students, scores);
+
+gradebook.addScore = function(name, score) {
   gradebook[name]["testScores"].push(score);
 }
 
-gradebook.getAverage = function getAverage(name) {
+gradebook.getAverage = function(name) {
   return average(gradebook[name]['testScores'])
   
 }
+
 
 
 
