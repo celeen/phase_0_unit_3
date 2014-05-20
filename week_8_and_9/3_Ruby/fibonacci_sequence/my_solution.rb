@@ -32,19 +32,11 @@ end
 
 
 
-# require 'bigdecimal'
-
-# def is_fibonacci?(num)
-# 	if Math.sqrt((num**2)*5-4) % 1 == 0 || Math.sqrt((num**2)*5+4) % 1 == 0
-# 		return true
-# 	else return false
-# 	end
-# end
-
 
 
 # 4. Refactored Solution
-
+#I'm not sure how I could get this to be clearer, or more succinct. 
+#I'll have to have another look at it, and some other people's code later in the week.
 
 
 
@@ -78,3 +70,5 @@ assert { is_fibonacci?(927372692193078999151) == false }
 
 
 # 5. Reflection 
+#I kept trying to figure out how to make it work with the algorithm on wikipedia, but there was a logically simpler way to do it all along.
+#Programming is mathematic, but it is not mathematics.
