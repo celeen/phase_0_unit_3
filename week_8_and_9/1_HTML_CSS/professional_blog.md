@@ -11,7 +11,7 @@
 You've been blogging over 7 weeks now, and you have a lot of great material! Now's your chance to edit your work and make it professional before you get into DBC. You want this to be ready for employers when you graduate!
 
 ## Release 0: Revisit your github.io site
-What are your impressions? What do you think of the experience when compared to other websites you like? Jot some notes on what you would like to change. You can also decide to completely rework your CSS and HTML.
+What are your impressions? What do you think of the experience when compared to other websites you like? Jot some notes  on what you would like to change. You can also decide to completely rework your CSS and HTML.
 
 ## Release 1: Wireframe/Modify your site
 You can either choose to implement Jekyll on your github.io page or you can write all of your HTML and CSS again. Make it look awesome!
