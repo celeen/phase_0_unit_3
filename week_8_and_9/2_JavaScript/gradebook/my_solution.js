@@ -52,7 +52,10 @@ gradebook.addScore = function addScore(name, score) {
   gradebook[name]["testScores"].push(score);
 }
 
-gradebook.getAverage = function getAverage()
+gradebook.getAverage = function getAverage(name) {
+  return average(gradebook[name]['testScores'])
+  
+}
 
 
 
