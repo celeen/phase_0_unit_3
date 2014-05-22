@@ -28,8 +28,13 @@
 
 
 # Your fabulous code goes here....
+# 
+#________________________________________
+#REFACTOR WITH TIM!
+
 class Item
-  attr_accessor :name, :quantity, :price
+  
+  attr_accessor :name, :price, :quantity
   def initialize (name, price, quantity = 1)
     @name = name
     @quantity = quantity
@@ -38,34 +43,39 @@ class Item
 
 end
 
-class ShoppingList
+class ShoppingList 
   attr_accessor :budget, :list
-  def initialize (budget, *list)
+  def initialize (budget = 0, *list)
     @budget = budget
     @list = list
-    if @list.length > 0
-      @total_cost = 0 + (@list.map {|item| (item.price)*(item.quantity) }).reduce(:+)
-    else
-      @total_cost = 0
-    end
-    raise ArgumentError.new("You're spending too much!") unless @total_cost < @budget 
+     if list.empty?
+      puts "You must add items to this list."
+     else budget_check
+     end
+      
   end
 
   def total_cost
-  (@list.map {|item| item.price }).reduce(:+)
+    (list.map {|item| item.price * item.quantity }).reduce(:+)
+  end
+
+  def budget_check
+    if total_cost > budget
+      puts "You are $#{total_cost - budget} over your budget"
+     else  
+      puts "You now have $#{budget - total_cost} left within your budget." 
+     end
   end
 
   def add (*item)
-    item.each {|item| @list << item }
-    @total_cost = 0 + (@list.map {|item| (item.price)*(item.quantity) }).reduce(:+)
-    raise ArgumentError.new("You're spending too much!") unless @total_cost < @budget
+    item.each {|item| list << item }
+    budget_check
   end
 
-  def remove (item = @list.pop)
-    @list.delete(item)
+  def remove (*items)
+    items.map { |item| list.delete(item) }
+    budget_check
   end
-
-
 end
 
 # DRIVER CODE GOES HERE.
@@ -74,8 +84,23 @@ def assert
   puts yield
 end
 
+apple = Item.new("apple",3)
+orange = Item.new("orange",3)
 
-target_list = ShoppingList.new(50)
+target_list = ShoppingList.new(50, apple,orange)
+
+p target_list
+
+superglue = Item.new("superglue",4)
+toilet_paper = Item.new("toilet paper", 7)
+
+target_list.add(superglue, toilet_paper)
+
+p target_list
+p "remove"
+target_list.remove(apple, orange)
+
+p target_list
 
 puts "1. A new list is of the class ShoppingList"
 assert { target_list.class == ShoppingList }
@@ -90,20 +115,20 @@ puts "3. #add_item adds an item to the list"
 assert { (target_list.list).include?(apple) == true }
 
 target_list.remove(apple)
-
+p target_list
 puts "4. #remove removes item from list"
 assert { (target_list.list).include?(apple) == false }
 
 orange = Item.new("orange", 5)
 tshirt = Item.new("t-shirt", 20)
 target_list.add(orange, tshirt)
-target_list.remove
+target_list.remove(orange, tshirt)
 
 p target_list
 p 5*5
 
-puts "5. #remove removes last item from list if none is specified"
-assert { (target_list.list).include?(tshirt) == false }
+puts "5. #remove removes multiple items from list"
+assert { (target_list.list).include?(tshirt) == true }
 
 target_list.add(tshirt)
 p target_list.total_cost
@@ -111,25 +136,25 @@ p target_list.total_cost
 puts "6. #total_cost finds the total cost of all items on the list"
 assert { target_list.total_cost == 25 }
 
-puts "7. Error is raised if list is initialized with greater cost than budget"
-begin
-butter = Item.new("butter", 5)
-bread = Item.new("bread", 3)
-oranges = Item.new("orange", 1, 3)
-ShoppingList.new(10, butter, bread, oranges)
-rescue
-  p $!.message
-assert {$!.message == "You're spending too much!"}
-end
+# puts "7. Error is raised if list is initialized with greater cost than budget"
+# begin
+# butter = Item.new("butter", 5)
+# bread = Item.new("bread", 3)
+# oranges = Item.new("orange", 1, 3)
+# ShoppingList.new(10, butter, bread, oranges)
+# rescue
+#   p $!.message
+# assert {$!.message == "You're spending too much!"}
+# end
 
-puts "8. Error is raised if list goes over budget with #add method"
-begin
-butter = Item.new("butter", 5)
-bread = Item.new("bread", 3)
-oranges = Item.new("orange", 1, 3)
-list = ShoppingList.new(10, butter, bread)
-list.add(oranges)
-rescue
-  p $!.message
-assert {$!.message == "You're spending too much!"}
-end
+# puts "8. Error is raised if list goes over budget with #add method"
+# begin
+# butter = Item.new("butter", 5)
+# bread = Item.new("bread", 3)
+# oranges = Item.new("orange", 1, 3)
+# list = ShoppingList.new(10, butter, bread)
+# list.add(oranges)
+# rescue
+#   p $!.message
+# assert {$!.message == "You're spending too much!"}
+# end
