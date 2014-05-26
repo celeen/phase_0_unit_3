@@ -23,7 +23,19 @@ $('img')
 		$(this).attr('src', 'dbc_logo.jpg');
 	})
 
+$('img').css({'border': '1px solid black'});
 
+
+$('img').mouseover(function() {
+	$('img').animate({
+		borderWidth: 10,
+	}, 500);
+})
+$('img').mouseout(function() {
+	$('img').animate({
+		borderWidth: 1,
+	}, 500);
+})
  
 //RELEASE 3: Event Listener
   // Add the code for the event listener here 
