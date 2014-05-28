@@ -34,17 +34,17 @@ function shoppingList(budget, list) {
 	}
 
 	this.add = function(item) {
-		// if (this.list.length === 0) {
+		if (this.list.length === 0) {
 			this.list.push(item);
 		} else {
 			for (var alreadyThere in this.list) {
-				if (alreadyThere.itemName === item.itemName) {
-					alreadyThere.quantity += item.quantity;
-					console.log(this.list);
+				if (this.list[alreadyThere].itemName === item.itemName) {
+					this.list[alreadyThere].quantity += item.quantity;
+					console.log("The contents of the grocery list after the if statement are: ") + console.log(this.list);
 				} else {
-					this.list.push(item);
-					console.log(this.list);
 					// break;
+					this.list.push(item);
+					console.log("Contents after the else statement are: ") + console.log(this.list);
 				}
 			}
 		}
@@ -116,4 +116,8 @@ console.log(groceryList.totalCost());
 //After a while if tooling with it, we were at a loss as to how to solve it. So, we decided to trust the user to know to just add to the quantity, for now.
 //This exercise made my head hurt a little bit, and I hope I retain things from it. I'm sure I will.
 //Also, it has started me feeling afraid that I will lose my ability to communicate effectively while studying. I suppose that it's natural to start losing some intellectual capacity after working it really hard, and getting tired.
+//___________________________
+//After some retooling on my own I have learned:
+//In the form of for loop that we have, the first variable accesses the INDEX of the array, not the item itself.
+//When you combine a string with an object in console logs, the object return [object Object], or some variation. You must print two seperate console log statements in order to get javascript to print the contents of the object
 
