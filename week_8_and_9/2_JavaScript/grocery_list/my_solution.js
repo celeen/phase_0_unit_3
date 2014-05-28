@@ -16,15 +16,53 @@
 
 
 // 3. Initial Solution
-function shoppingList(budget) {
+
+function item(itemName, price, quantity) {
+	this.itemName = itemName;
+	this.price = price;
+	this.quantity = (typeof quantity === "undefined") ? 1 : quantity;
+}
+
+
+function shoppingList(budget, list) {
 	this.budget = budget;
-	this.item = function(quantity, price); {
-		this.quantity = quantity;
-		this.price = price;
+	this.list = (typeof list === "undefined") ? [] : list;
+
+	this.consolidate = function(itemName) {
+		// loop through list
+		// compare itemName against each item.itemName
 	}
 
-	this.add = function(item); {
+	this.add = function(item) {
+		// if (this.list.length === 0) {
+			this.list.push(item);
+		} else {
+			for (var alreadyThere in this.list) {
+				if (alreadyThere.itemName === item.itemName) {
+					alreadyThere.quantity += item.quantity;
+					console.log(this.list);
+				} else {
+					this.list.push(item);
+					console.log(this.list);
+					// break;
+				}
+			}
+		}
+	}
+
+	this.totalCost = function() {
 		
+		var sum = 0
+		for (var i = 0; i < this.list.length; i++) {
+		sum += (this["list"][i]["price"])*(this['list'][i]['quantity']);
+		}
+		return sum
+	}
+
+	this.remove = function(item) {
+		for (var i = 0; i < this.list.length; i++) {
+			if (this.list[i] === (item)) this.list.splice(i, 1);
+		}
 	}
 
 }
@@ -40,10 +78,42 @@ function shoppingList(budget) {
 
 
 // 1. DRIVER TESTS/ASSERT STATEMENTS GO BELOW THIS LINE
-
+var groceryList = new shoppingList(50);
+var apple = new item("apple", .6, 2);
+var orange = new item("orange", .5);
+var moarOranges = new item("orange", .5, 100);
+// console.log("groceryList === " + groceryList.list);
+console.log("_______________________");
+console.log("adding 2 apples...");
+console.log("_______________________");
+groceryList.add(apple);
+console.log("_______________________");
+console.log("_______________________");
+console.log("adding 1 orange");
+console.log("_______________________");
+groceryList.add(orange);
+console.log("_______________________");
+console.log("_______________________");
+console.log("adding 100 oranges");
+console.log("_______________________");
+groceryList.add(moarOranges);
+console.log("_______________________");
+console.log("_______________________");
+console.log(groceryList.list);
+groceryList.remove(moarOranges);
+console.log(groceryList.list);
+console.log(groceryList.totalCost());
 
 
 
 
 
 // 5. Reflection
+//Was going really smoothly; I definitely have a more solid understanding of javascript after this exercise.
+//Zach came up with the idea to make sure that our add method will add to the quantity of an already existing item if we try to add an item with the same name as what's already on the list...
+//but it just kept exploding.
+//What it looks like is happening is that after an item is added, the loop can tell that there's another item, and iterates for the new item after adding it, instead of just quitting at the end of the list as it was at the beginning. (I think this is different from what ruby would do... but my brain hurts a little right now, and I'm not too sure.)
+//After a while if tooling with it, we were at a loss as to how to solve it. So, we decided to trust the user to know to just add to the quantity, for now.
+//This exercise made my head hurt a little bit, and I hope I retain things from it. I'm sure I will.
+//Also, it has started me feeling afraid that I will lose my ability to communicate effectively while studying. I suppose that it's natural to start losing some intellectual capacity after working it really hard, and getting tired.
+
