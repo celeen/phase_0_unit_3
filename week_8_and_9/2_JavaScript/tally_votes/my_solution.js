@@ -1,6 +1,6 @@
 // U3.W8-9: Gradebook from Names and Scores
 
-// I worked on this challenge [by myself, with:]
+// I worked on this challenge [by myself]
 
 // These are the votes cast by each student. Do not alter these objects here.
 var votes = {
@@ -37,8 +37,22 @@ var voteCount = {
   president: {},
   vicePresident: {},
   secretary: {},
-  treasurer: {}
+  treasurer: {},
+  var countVotes = function(votes) {
+    for (voter in votes) {
+      for (office in voter) {
+        if (voteCount[office].hasOwnProperty(voter[office])) {
+          voteCount[office][voter[office]] += 1;
+        }
+        else {
+        voteCount[office][voter[office]] = 1;
+        }
+      }  
+    }
+  }
 }
+
+countVotes(votes)
 
 /* The name of each student receiving a vote for an office should become a property 
 of the respective office in voteCount.  After Alex's votes have been tallied, 
@@ -64,7 +78,10 @@ var officers = {
 }
 
 // Pseudocode
-
+//for each voter, iterate through the votes
+//if voteCount["president"] hasOwnProperty(voter["president"]),
+// voteCount["president"][voter["president"]] += 1
+// else voteCount["president"][votes["Voter"]["office"] = 1]
 
 // __________________________________________
 // Initial Solution

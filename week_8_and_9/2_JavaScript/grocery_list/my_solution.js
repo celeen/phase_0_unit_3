@@ -1,7 +1,7 @@
 // U3.W8-9:
 
 
-// I worked on this challenge [by myself].
+// I worked on this challenge [with Zach Pflederer].
 //I need a greocery list
 //I need to be able to set a budget for the list
 //I need to be able to add and remove items from the list
@@ -13,6 +13,14 @@
 //create an object groceryList
 //give a property, budget that is initially set to 0
 //give a
+
+//___________________________
+//iterate through list array
+//placeHolder = 0
+//if the 'itemName' property of the item matches the 'itemName' preoperty of the argument, add the quantities
+//else, placeHolder += 1
+//if placeHolder === list.length
+//push item to list
 
 
 // 3. Initial Solution
@@ -28,23 +36,20 @@ function shoppingList(budget, list) {
 	this.budget = budget;
 	this.list = (typeof list === "undefined") ? [] : list;
 
-	this.consolidate = function(itemName) {
-		// loop through list
-		// compare itemName against each item.itemName
-	}
-
+	
 	this.add = function(item) {
 		if (this.list.length === 0) {
 			this.list.push(item);
 		} else {
 			for (var alreadyThere in this.list) {
-				if (this.list[alreadyThere].itemName === item.itemName) {
+				var placeHolder = 0
+					if (this.list[alreadyThere].itemName === item.itemName) {
 					this.list[alreadyThere].quantity += item.quantity;
-					console.log("The contents of the grocery list after the if statement are: ") + console.log(this.list);
 				} else {
-					// break;
+					placeHolder += 1;
+				}
+				if (placeHolder === this.list.length) {
 					this.list.push(item);
-					console.log("Contents after the else statement are: ") + console.log(this.list);
 				}
 			}
 		}
@@ -120,4 +125,15 @@ console.log(groceryList.totalCost());
 //After some retooling on my own I have learned:
 //In the form of for loop that we have, the first variable accesses the INDEX of the array, not the item itself.
 //When you combine a string with an object in console logs, the object return [object Object], or some variation. You must print two seperate console log statements in order to get javascript to print the contents of the object
+//______________________
+//Moreover, the issue is not that the loop is iterating over the added object; our loop is set up in a faulty way. We should possibly be using a when statement instead; iterating through the list is bound to either match or not match each time. What we want is if NONE of the list elements match the name, to push the item, not if EACH of the list elements does not match the name, push the item.
+//we could maybe try a nested loop
+//if the name matches, add the quantity, else continue
+//if indexof(itemname) === -1 (if the itemName does not appear in the array)
+//push the item to the array
+//else this.list[indexof(itemname)].quantity += item.quantity
+//That approach doesn't work because it's difficult to accurately tell the index of the item whose name matches
+//________________________
+//Solce it! I wasn't breaking it up into small enough pieces. Adding a placeholder variable to compare to has solved the issue. Now I can compare to see if NONE of the items in the list match...
+//Ruby has spoiled me!
 
