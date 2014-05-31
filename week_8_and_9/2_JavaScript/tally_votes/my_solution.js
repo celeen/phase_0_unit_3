@@ -38,19 +38,32 @@ var voteCount = {
   vicePresident: {},
   secretary: {},
   treasurer: {},
-  var countVotes = function(votes) {
+}
+
+ var countVotes = function(votes) {
     for (voter in votes) {
-      for (office in voter) {
-        if (voteCount[office].hasOwnProperty(voter[office])) {
-          voteCount[office][voter[office]] += 1;
-        }
-        else {
-        voteCount[office][voter[office]] = 1;
-        }
-      }  
+      console.log("This voter is: ")
+      console.log(voter)
     }
   }
-}
+  // var countVotes = function(votes) {
+  //   for (voter in votes) {
+  //     console.log("This voter is: ")
+  //     console.log(voter)
+  //     for (office in voter) {
+  //       console.log("This office is: ")
+  //       console.log(office)
+  //       // if (voteCount[office].hasOwnProperty(voter[office])) {
+  //       //   voteCount[office][voter[office]] += 1;
+  //       }
+  //       else {
+  //         console.log("else")
+  //       // voteCount[office][voter[office]] = 1;
+  //       }
+  //     }  
+  //   }
+  // }
+
 
 countVotes(votes)
 
