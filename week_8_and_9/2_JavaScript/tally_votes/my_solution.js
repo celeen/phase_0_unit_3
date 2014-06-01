@@ -91,7 +91,10 @@ var officers = {
 }
 
 // Pseudocode
-//for each voter, iterate through the votes
+//for votes, iterate through each voter
+//add voter name to an array
+//for each item in the array, access the president property in voter[arrayItem]
+//
 //if voteCount["president"] hasOwnProperty(voter["president"]),
 // voteCount["president"][voter["president"]] += 1
 // else voteCount["president"][votes["Voter"]["office"] = 1]
