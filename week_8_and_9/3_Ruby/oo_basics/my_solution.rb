@@ -1,10 +1,14 @@
 # U3.W8-9: OO Basics: Student
 
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge [by myself].
 
 # 2. Pseudocode
-
+#define class Student
+#define initialize method, which takes two arguments
+#first_name, and scores, which should be a splat
+#assign instance variables to arguments
+#assign first_name to equal scores array
 
 
 # 3. Initial Solution
@@ -12,8 +16,11 @@
 class Student
   attr_accessor :scores, :first_name
 
-  def initialize(args)   #Use named arguments!
-    #your code here
+  def initialize(first_name, *scores)   
+  	@first_name = first_name
+  	@scores = scores
+
+  	first_name = scores
   end
 end
 
